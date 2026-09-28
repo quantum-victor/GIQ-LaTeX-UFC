@@ -1,0 +1,39 @@
+% SPDX-License-Identifier: MIT
+% Configurações editáveis. Requer abntex2, biblatex-abnt e Biber instalados.
+% Mude para \DocumentoInglestrue se redigir em ingles.
+\newif\ifDocumentoIngles
+\DocumentoInglesfalse % Troque false por true para redação em inglês.
+\newcommand{\TextoIdioma}[2]{\ifDocumentoIngles #2\else #1\fi}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+\usepackage{etoolbox}    % Verifica se o campo de coorientador esta preenchido.
+\usepackage{amsmath,mathtools}
+\usepackage{graphicx}
+\graphicspath{{figuras/}}
+\usepackage{tikz}
+\usepackage{booktabs,tabularx}
+\usepackage{csquotes}
+\usepackage{hyperref}
+% Autor-data e o padrao. A forma numerica e opcional.
+\newif\ifCitacoesNumericas
+\CitacoesNumericasfalse % Troque false por true para citações numéricas.
+\ifCitacoesNumericas
+  \usepackage[backend=biber,bibstyle=abnt,citestyle=abnt-numeric,sorting=none,language=auto,autolang=other]{biblatex}
+  % Citação numérica entre parênteses, compatível com a NBR 10520:2023.
+  \DeclareCiteCommand{\parencite}[\mkbibparens]
+    {\usebibmacro{prenote}}
+    {\usebibmacro{citeindex}\usebibmacro{cite}}
+    {\multicitedelim}
+    {\usebibmacro{postnote}}
+\else
+  \usepackage[backend=biber,style=abnt,sorting=nty,language=auto,autolang=other]{biblatex}
+\fi
+\addbibresource{bibliografia/referencias.bib}
+
+\hypersetup{colorlinks=false,pdfborder={0 0 0},bookmarksnumbered=true,bookmarksopen=true}
+% Evita alertas de caixa alta nos marcadores opcionais de apendices/anexos.
+\pdfstringdefDisableCommands{\def\uppercase#1{#1}}
+\AtBeginBibliography{\SingleSpacing\setlength{\parindent}{0pt}}

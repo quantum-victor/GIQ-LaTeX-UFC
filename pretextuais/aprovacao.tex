@@ -1,0 +1,45 @@
+\begin{folhadeaprovacao}
+\begin{center}
+\MakeUppercase{\imprimirautor}\par
+\vspace*{1.8cm}
+\MakeUppercase{\imprimirtitulo}\par
+\end{center}
+\vspace{1.2cm}
+\begin{flushright}
+\begin{minipage}{\dimexpr\textwidth-8cm\relax}
+\SingleSpacing
+\imprimirpreambulo\par
+\end{minipage}
+\end{flushright}
+\vspace{0.65cm}
+\noindent\TextoIdioma{Aprovada em:}{Approved on:} \DataAprovacao.
+\vspace{1cm}
+\begin{center}
+\textbf{\TextoIdioma{BANCA EXAMINADORA}{EXAMINATION COMMITTEE}}\par
+\vspace{0.75cm}
+\begin{minipage}{.84\textwidth}\centering
+\rule{\linewidth}{.4pt}\par
+\NomeOrientador\par Universidade Federal do Ceará (UFC)
+
+\end{minipage}\par
+\ifCoorientadorNaBanca
+\ifdefempty{\NomeCoorientador}{}{%
+\vspace{0.65cm}
+\begin{minipage}{.84\textwidth}\centering
+\rule{\linewidth}{.4pt}\par
+\NomeCoorientador\par\InstituicaoCoorientador
+\end{minipage}\par
+}
+\fi
+\vspace{0.75cm}
+\begin{minipage}{.84\textwidth}\centering
+\rule{\linewidth}{.4pt}\par
+\NomeExaminadorA\par\InstituicaoExaminadorA
+\end{minipage}\par
+\vspace{0.75cm}
+\begin{minipage}{.84\textwidth}\centering
+\rule{\linewidth}{.4pt}\par
+\NomeExaminadorB\par\InstituicaoExaminadorB
+\end{minipage}
+\end{center}
+\end{folhadeaprovacao}

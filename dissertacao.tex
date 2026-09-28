@@ -1,0 +1,101 @@
+% Modelo GIQ para dissertações do PPGETI/UFC.
+% Código de configuração MIT; textos demonstrativos originais CC0.
+\documentclass[12pt,a4paper,oneside,openany,english,brazil,chapter=TITLE,sumario=abnt-6027-2012]{giq}
+\input{configuracao.tex}
+
+% DADOS DA DISSERTACAO - edite uma unica vez aqui.
+\newcommand{\NomeAutor}{NOME COMPLETO}
+\newcommand{\TituloPortugues}{TÍTULO DA DISSERTAÇÃO}
+\newcommand{\TituloIngles}{DISSERTATION TITLE}
+\newcommand{\NomeOrientador}{Prof. Dr. NOME DO ORIENTADOR}
+% Se nao houver coorientacao, deixe o campo abaixo VAZIO: {}.
+% O nome aparece automaticamente na folha de rosto quando preenchido.
+\newcommand{\NomeCoorientador}{} % Exemplo: {Prof. Dr. Nome do Coorientador}
+% Se o coorientador TAMBEM for integrante formal da banca, ative a linha abaixo.
+\newif\ifCoorientadorNaBanca
+\CoorientadorNaBancafalse
+% \CoorientadorNaBancatrue
+\newcommand{\InstituicaoCoorientador}{Universidade Federal do Cear\'a (UFC)}
+\newcommand{\NomeExaminadorA}{Prof. Dr. NOME DO EXAMINADOR A}
+\newcommand{\InstituicaoExaminadorA}{INSTITUIÇÃO}
+\newcommand{\NomeExaminadorB}{Prof. Dr. NOME DO EXAMINADOR B}
+\newcommand{\InstituicaoExaminadorB}{INSTITUIÇÃO}
+\newcommand{\DataAprovacao}{\rule{3.6cm}{.4pt}}
+\newcommand{\CidadeDefesa}{Fortaleza}
+\newcommand{\AnoDefesa}{2026}
+
+\titulo{\TextoIdioma{\TituloPortugues}{\TituloIngles}}
+\autor{\NomeAutor}
+\local{\CidadeDefesa}
+\data{\AnoDefesa}
+\orientador{\NomeOrientador}
+\ifdefempty{\NomeCoorientador}{}{\coorientador{\NomeCoorientador}}
+\instituicao{\TextoIdioma{Universidade Federal do Ceará\\Centro de Tecnologia\\Programa de Pós-Graduação em Engenharia de Teleinformática}{Federal University of Ceará\\Technology Center\\Graduate Program in Teleinformatics Engineering}}
+\tipotrabalho{\TextoIdioma{Dissertação (Mestrado)}{Master's dissertation}}
+\preambulo{\TextoIdioma{Dissertação apresentada ao Programa de Pós-Graduação em Engenharia de Teleinformática da Universidade Federal do Ceará como requisito parcial para obtenção do título de Mestre em Engenharia de Teleinformática. Área de concentração: Eletromagnetismo Aplicado.}{Dissertation submitted to the Graduate Program in Teleinformatics Engineering at the Federal University of Ceará in partial fulfillment of the requirements for the Master's degree in Teleinformatics Engineering. Research area: Applied Electromagnetics.}}
+% Revise também estes metadados de acordo com o tema real da dissertação.
+\hypersetup{pdftitle={\imprimirtitulo},pdfauthor={\imprimirautor},
+  pdfsubject={\TextoIdioma{Dissertação de mestrado - PPGETI/UFC}{Master's dissertation - PPGETI/UFC}},
+  pdfkeywords={\TextoIdioma{informação quântica}{quantum information}}}
+
+\begin{document}
+\hypersetup{pageanchor=false} % Sem destinos duplicados nas paginas pre-textuais.
+\ifDocumentoIngles
+  \selectlanguage{english}
+  \renewcommand{\contentsname}{CONTENTS}
+\else
+  \selectlanguage{brazil}
+  \renewcommand{\contentsname}{SUMÁRIO}
+\fi
+\pretextual
+\input{pretextuais/capa.tex}
+\input{pretextuais/rosto.tex}
+% OPCIONAIS: remova o % do item que deseja usar.
+% \input{pretextuais/errata.tex}
+\input{pretextuais/aprovacao.tex}
+% \input{pretextuais/dedicatoria.tex}
+% \input{pretextuais/agradecimentos.tex}
+\input{pretextuais/epigrafe.tex} % Comente esta linha se não utilizar epígrafe.
+\ifDocumentoIngles
+  \input{pretextuais/abstract.tex}
+  \input{pretextuais/resumo.tex}
+\else
+  \input{pretextuais/resumo.tex}
+  \input{pretextuais/abstract.tex}
+\fi
+% Listas opcionais: habilite os tres comandos de cada bloco, se necessario.
+% \pdfbookmark[0]{\listfigurename}{lof}
+% \listoffigures*
+% \cleardoublepage
+% \pdfbookmark[0]{\listtablename}{lot}
+% \listoftables*
+% \cleardoublepage
+% \input{pretextuais/siglas.tex}
+% \input{pretextuais/simbolos.tex}
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+\textual
+\hypersetup{pageanchor=true}
+\ifDocumentoIngles
+  \input{capitulos/en/introducao.tex}
+  \input{capitulos/en/fundamentacao.tex}
+  \input{capitulos/en/metodologia.tex}
+  \input{capitulos/en/resultados.tex}
+  \input{capitulos/en/conclusoes.tex}
+\else
+  \input{capitulos/introducao.tex}
+  \input{capitulos/fundamentacao.tex}
+  \input{capitulos/metodologia.tex}
+  \input{capitulos/resultados.tex}
+  \input{capitulos/conclusoes.tex}
+\fi
+
+\postextual
+\printbibliography[heading=bibintoc,title={\TextoIdioma{REFERÊNCIAS}{REFERENCES}}]
+% Para apendices/anexos/glossario, ative apenas o arquivo desejado.
+% \input{pos-textuais/glossario.tex}
+% \input{pos-textuais/apendices.tex}
+% \input{pos-textuais/anexos.tex}
+\end{document}

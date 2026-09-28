@@ -1,0 +1,23 @@
+\begin{folhaderosto}
+\begin{center}
+\OnehalfSpacing
+\MakeUppercase{\imprimirautor}\par
+\vspace*{2.8cm}
+\MakeUppercase{\imprimirtitulo}\par
+\vfill
+\end{center}
+\begin{flushright}
+\begin{minipage}{\dimexpr\textwidth-8cm\relax}
+\SingleSpacing
+\imprimirpreambulo\par
+\vspace{0.7cm}
+{\raggedright\noindent\TextoIdioma{Orientador:}{Advisor:} \NomeOrientador\par
+\ifdefempty{\NomeCoorientador}{}{\TextoIdioma{Coorientador:}{Co-advisor:} \NomeCoorientador\par}}
+\end{minipage}
+\end{flushright}
+\vfill
+\begin{center}
+\OnehalfSpacing
+\MakeUppercase{\imprimirlocal}\\\imprimirdata
+\end{center}
+\end{folhaderosto}

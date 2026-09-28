@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "A citação do modelo é opcional; não é necessária em dissertações que o utilizem."
+title: "GIQ: modelo LaTeX para dissertações da UFC/PPGETI"
+type: software
+authors:
+  - given-names: "João"
+    family-names: "Alencar"
+version: "1.3.0"
+date-released: "2026-09-28"
+license: "MIT"
